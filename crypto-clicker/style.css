@@ -7,6 +7,11 @@ body{
     user-select: none;
 }
 
+/*Hide Class*/
+.hide{
+    display: none !important;
+}
+
 /*Game Field*/
 #game-field{
     border: 3px solid #000;
@@ -21,6 +26,55 @@ body{
     overflow: hidden;
 }
 
+/*Caves*/
+#caves{
+    padding-top: 50px;
+    padding-left: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 18;
+    gap: 30px;
+}
+#caves img{
+    width: 320px;
+    cursor: pointer;
+}
+.mine{
+    cursor: url(images/cursor-pickaxe.png), default !important;
+}
+.buyCave{
+    cursor: url(images/cursor-buy.png), default !important;
+}
+
+/*Tokens Info*/
+#tokens-info{
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    min-width:150px;
+    max-width: 300px;
+    height: auto;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 10px;
+}
+#tokens-info .coin-number{
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ padding: 10px 0;
+}
+#tokens-info .coin-number img{
+ width: 40px;
+}
+#tokens-info .coin-number span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+}
 
 /*Shop*/
 #shop{
@@ -31,7 +85,6 @@ body{
     width: 200px;
     z-index: 10;
 }
-
 #shop img{
     position: relative;
     width: 1200px
@@ -69,6 +122,72 @@ body{
     bottom: 10px;
 }
 
+/*Trade Menu*/
+#trade-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    background: url('images/planks.jpg');
+    border: 5px solid rgb(104, 61, 36);
+    border-radius: 20px;
+}
+#trade-menu img{
+    width: 100px;
+}
+#trade-menu .trade-item{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#trade-menu .trade-item button{
+    border: 2px solid #000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+#trade-menu .trade-item button.buy{
+ background-color: #00ff00;
+}
+#trade-menu .trade-item button.buy:hover{
+    background-color: #008300;
+   }
+
+#trade-menu .trade-item button.sell{
+ background-color: #ff0000;
+}
+#trade-menu .trade-item button.sell:hover{
+    background-color: #960000;
+}
+
+/*Close Button*/
+#close-btn{
+    cursor: pointer;
+}
+
+/*Dark Background*/
+#dark-bg{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    background-color: rgba(0, 0, 0, 0.507);
+}
+
 /*Animation Classes*/
 .popUp{
     animation: popUp 1s linear;
@@ -76,6 +195,16 @@ body{
 .popOut{
     animation: popOut 1s linear;
 }
+.slideIn{
+    animation: slideIn 10ms linear;
+}
+.slideOut{
+    animation: slideOut 10ms linear;
+}
+.shake{
+    animation: shake 0.5s linear;
+}
+
 
 /*Animations*/
 @keyframes popUp {
@@ -88,14 +217,67 @@ body{
     100%{
         bottom: 10px
     }
-  }
-
-  @keyframes popOut {
+}
+@keyframes popOut {
     from{
         right: 10px
     }
     to{
         right: -300px
     }
-  }
+}
+
+@keyframes slideIn {
+    from{
+        right: -300px;
+    }
+    to{
+        right: 10px;
+    }
+}
+@keyframes slideOut {
+    from{
+        right: 10px;
+    }
+    to{
+        right: -300px;
+    }
+}
+
+@keyframes shake {
+    0%{
+        right: 30px;
+     }
+     10%{
+        right: 5px;
+     }
+     20%{
+         right: 30px;
+     }
+     30%{
+        right: 5px;
+     }
+     40%{
+        right: 30px;
+     }
+     50%{
+         right: 5px;
+     }
+     60%{
+        right: 30px;
+     }
+     70%{
+         right: 5px;
+     }
+     80%{
+        right: 30px;
+     }
+     90%{
+        right: 5px;
+     }
+     100%{
+         right: 10px;
+     }
+}
+  
   

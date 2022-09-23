@@ -8,16 +8,21 @@ let playerTop = 300;
 let walkSpeed = 5;
 
 let spawned = false;
+let canTrade= false;
 
 let topMax = 5;
 let rightMax = 1145;
-let leftMax = 5;
+let leftMax = 340;
 let bottomMax = 625;
 
-
-
 function walk(){
+    
     addEventListener('keydown', (e)=>{
+        if((playerTop >= 255 - 50 && playerTop <= 255 + 70 - 50) && (playerLeft >= 985 - 32 && playerLeft <= 985 + 150 - 32)){
+            canTrade= true;
+        }else{
+            canTrade= false
+        }
 
         if((playerTop >= 255 - 50 && playerTop <= 255 + 70 - 50) && (playerLeft >= 985 - 32 && playerLeft <= 985 + 150 - 32) && !spawned){
             askForTrade(spawned);
@@ -60,6 +65,16 @@ function walk(){
             playerLeft += walkSpeed;
             player.style.left = playerLeft + 'px';
         }
+
+        if (e.keyCode == 69 && canTrade) {
+            let tradeMenu = document.getElementById('trade-menu');
+            let background = document.getElementById('dark-bg');
+
+            tradeMenu.classList.remove('hide');
+            background.classList.remove('hide');
+            localStorage.setItem('openedMenu', true)
+        }
+
     });
 
     addEventListener('keyup', (e)=>{

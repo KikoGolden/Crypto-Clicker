@@ -13,6 +13,38 @@
 
     <div id="game-field">
 
+        <div id="caves">
+            <img class="buyCave" src="images/cave-doge-locked.png" alt="doge cave" id="cave-doge">
+            <img class="buyCave" src="images/cave-etherium-locked.png" alt="eth cave" id="cave-eth">
+            <img class="buyCave" src="images/cave-bitcoin-locked.png" alt="btc cave" id="cave-btc">
+        </div>
+
+        <div id="tokens-info">
+            <div id="cash" class="coin-number">
+                <img src="images/cash.png" alt="token">
+                <span>-</span>
+                <span><span class="value">25</span> $</span>
+            </div>
+
+            <div id="btc" class="coin-number hide">
+                <img src="images/crypto-icon.png" alt="token">
+                <span>-</span>
+                <span class="value">0</span>
+            </div>
+
+            <div id="eth" class="coin-number hide">
+                <img src="images/eth.png" alt="token">
+                <span>-</span>
+                <span class="value">0</span>
+            </div>
+
+            <div id="dge" class="coin-number hide">
+                <img src="images/doge-coin.png" alt="token">
+                <span>-</span>
+                <span class="value">0</span>
+            </div>
+        </div>
+
         <div id="player">
            <img src="images/player-idle.png" alt="player">
         </div>
@@ -22,6 +54,29 @@
         </div>
         
         <img src="images/trade-floor.png" alt="trade floor" id="trade-floor">
+
+        <div class="hide" id="trade-menu">
+            <div class="trade-item">
+                <img src="images/doge-coin.png" alt="doge coin">
+                <button class="buy">Buy</button>
+                <button class="sell">Sell</button>
+            </div>
+
+            <div class="trade-item">
+                <img src="images/crypto-icon.png" alt="doge coin">
+                <button class="buy">Buy</button>
+                <button class="sell">Sell</button>
+            </div>
+
+            <div class="trade-item">
+                <img src="images/eth.png" alt="doge coin">
+                <button class="buy">Buy</button>
+                <button class="sell">Sell</button>
+            </div>
+            <img id="close-btn" src="images/x.png" alt="x">
+        </div>
+        
+        <div id="dark-bg" class="hide"></div>
     </div>
 
   
