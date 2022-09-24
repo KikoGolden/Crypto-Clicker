@@ -1,4 +1,4 @@
-import { coinUpdate, updateDoge, updateEth, updateBitcoin } from '/coinUpdate.js';
+import { coinUpdate, updateDoge, updateEth, updateBitcoin, updateCash } from '/coinUpdate.js';
 
 let buyDoge = document.getElementById('buyDoge');
 let buyEth = document.getElementById('buyEth');
@@ -32,14 +32,56 @@ function closeTradeMenu(){
 function addBuySellFunc(){
   
     
-   buyDoge.addEventListener('click', ()=>{console.log('buyed doge')});
-   buyEth.addEventListener('click', ()=>{console.log('buyed eth')});
-   buyBtc.addEventListener('click', ()=>{console.log('buyed btc')});
+   buyDoge.addEventListener('click', ()=>{
+
+     let amount = parseFloat(amountDoge.value);
+          if (!amount || amount <= 0) {return}
+
+          let dollars = parseFloat(cash.textContent);
+          let price = amount * 0.70;
+          
+          if(dollars >= price){
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               updateDoge(amount);
+               coinUpdate();
+          }
+
+   });
+   buyEth.addEventListener('click', ()=>{
+
+     let amount = parseFloat(amountEth.value);
+     if (!amount || amount <= 0) {return}
+
+     let dollars = parseFloat(cash.textContent);
+     let price = amount * 2000;
+     
+     if(dollars >= price){
+          cash.textContent = parseFloat(dollars - price).toFixed(2);
+          updateEth(amount);
+          coinUpdate();
+     }
+
+   });
+   buyBtc.addEventListener('click', ()=>{
+
+     let amount = parseFloat(amountBtc.value);
+     if (!amount || amount <= 0) {return}
+
+     let dollars = parseFloat(cash.textContent);
+     let price = amount * 50000;
+     
+     if(dollars >= price){
+          cash.textContent = parseFloat(dollars - price).toFixed(2);
+          updateBitcoin(amount);
+          coinUpdate();
+     }
+
+   });
 
    sellDoge.addEventListener('click', ()=>{
     
           let amount = amountDoge.value;
-          if (!amount) {return}
+          if (!amount || amount <= 0) {return}
 
           let dollars = parseFloat(cash.textContent);
           let dgeValue =  parseFloat(dge.textContent);
@@ -55,7 +97,7 @@ function addBuySellFunc(){
    sellEth.addEventListener('click', ()=>{
 
     let amount = amountEth.value;
-          if (!amount) {return}
+          if (!amount || amount <= 0) {return}
 
           let dollars = parseFloat(cash.textContent);
           let ethValue =  parseFloat(eth.textContent);
@@ -71,7 +113,7 @@ function addBuySellFunc(){
    sellBtc.addEventListener('click', ()=>{
 
     let amount = amountBtc.value;
-    if (!amount) {return}
+    if (!amount || amount <= 0) {return}
 
     let dollars = parseFloat(cash.textContent);
     let btcValue =  parseFloat(btc.textContent);
