@@ -141,7 +141,7 @@ body{
     border-radius: 20px;
 }
 #trade-menu img{
-    width: 100px;
+    width: 150px;
 }
 #trade-menu .trade-item{
     display: flex;
@@ -171,6 +171,15 @@ body{
 }
 #trade-menu .trade-item button.sell:hover{
     background-color: #960000;
+}
+
+input{
+    text-align: center;
+}
+
+/*Token Price*/
+.token-price{
+    width: 150px !important;
 }
 
 /*Close Button*/

@@ -23,7 +23,7 @@ function updateDoge(number=0.5){
   dge.textContent = parseFloat(doge).toFixed(1);
 }
 
-function updateBitcoin(number=0.0001){
+function updateBitcoin(number=0.0009){
     bitcoin += number;
     btc.textContent = parseFloat(bitcoin).toFixed(4);
 }
@@ -35,19 +35,20 @@ function updateEth(number=0.002){
 
 
 function coinUpdate(){
+
   if (doge > 0) {
     dgeField.classList.remove('hide'); 
   }else{
     dgeField.classList.add('hide'); 
   }
 
-  if (etherium > 0) {
+  if (etherium > 0.001) {
     ethField.classList.remove('hide'); 
   }else{
     ethField.classList.add('hide'); 
   }
 
-  if (bitcoin > 0) {
+  if (bitcoin >= 0.0009) {
     btcField.classList.remove('hide'); 
   }else{
     btcField.classList.add('hide'); 
