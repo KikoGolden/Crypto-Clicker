@@ -14,7 +14,8 @@ let dollars =  parseInt(cash.textContent);
 
 
 function updateCash(number){
-    dollars += number;
+  let dollarsNew =  parseInt(cash.textContent);
+    dollarsNew += number;
     cash.textContent = dollars;
   }
     
