@@ -1,5 +1,15 @@
 import { coinUpdate, updateDoge, updateEth, updateBitcoin, updateCash } from '/coinUpdate.js';
 
+//items menu
+let pickaxeMenu = document.getElementById('items-menu');
+let pickaxeIcon = document.getElementById('pickaxes');
+let closePicksBtn = document.getElementById('close-items-btn');
+
+let twoX = document.getElementById('buy2X');
+let fiveX = document.getElementById('buy5X');
+let tenX = document.getElementById('buy10X');
+
+//trade menu
 let buyDoge = document.getElementById('buyDoge');
 let buyEth = document.getElementById('buyEth');
 let buyBtc = document.getElementById('buyBtc');
@@ -17,6 +27,67 @@ let eth = document.querySelector('#eth .value');
 let dge = document.querySelector('#dge .value');
 let cash = document.querySelector('#cash .value');
 
+//pickaxe menu functions
+function addPicksMenu(){
+     pickaxeIcon.addEventListener('click', ()=>{
+         pickaxeMenu.classList.remove('hide');
+     });
+
+     closePicksBtn.addEventListener('click', ()=>{
+          pickaxeMenu.classList.add('hide');
+     });
+  
+}
+
+//buy pickaxes
+function buyPickaxes(){
+     twoX.addEventListener('click', ()=>{
+
+          let multiplier = parseInt(localStorage.getItem('multiplier'));
+          let dollars = parseFloat(cash.textContent);
+          let price = 100;
+          
+          if(dollars >= price){
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               twoX.classList.add('hide');
+               if (multiplier < 2) {
+                    localStorage.setItem('multiplier', 2)
+               }
+          }
+
+     });
+     fiveX.addEventListener('click', ()=>{
+
+          let multiplier = parseInt(localStorage.getItem('multiplier'));
+          let dollars = parseFloat(cash.textContent);
+          let price = 1000;
+          
+          if(dollars >= price){
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               fiveX.classList.add('hide');
+               if (multiplier < 5) {
+                    localStorage.setItem('multiplier', 5)
+               }
+          }
+
+     });
+     tenX.addEventListener('click', ()=>{
+          
+          let multiplier = parseInt(localStorage.getItem('multiplier'));
+          let dollars = parseFloat(cash.textContent);
+          let price = 10000;
+          if(dollars >= price){
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               tenX.classList.add('hide');
+               if (multiplier < 10) {
+                    localStorage.setItem('multiplier', 10)
+               }
+          }
+
+     }); 
+}
+
+//close trade menu
 function closeTradeMenu(){
     let closeBtn = document.getElementById('close-btn');
 
@@ -29,9 +100,13 @@ function closeTradeMenu(){
     });
 } 
 
+//buy/sell functions
 function addBuySellFunc(){
-  
-    
+ 
+   addPicksMenu();
+   buyPickaxes();
+   closeTradeMenu();
+
    buyDoge.addEventListener('click', ()=>{
 
      let amount = parseFloat(amountDoge.value);
@@ -129,4 +204,4 @@ function addBuySellFunc(){
 
 }
 
-export { closeTradeMenu, addBuySellFunc }
+export { addBuySellFunc }

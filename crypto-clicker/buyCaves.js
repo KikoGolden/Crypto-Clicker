@@ -4,7 +4,7 @@ let btcField = document.querySelector('#cave-btc');
 let ethField = document.querySelector('#cave-eth');
 let dgeField = document.querySelector('#cave-doge');
 
-
+//buy doge cave
 function buyDogeCave(){
     let url = dgeField.src;
     if (!url.includes("locked")) {
@@ -25,6 +25,7 @@ function buyDogeCave(){
 
 }
 
+//buy eth cave
 function buyEthCave(){
     let url = ethField.src;
     if (!url.includes("locked")) {
@@ -45,6 +46,7 @@ function buyEthCave(){
 
 }
 
+//buy btc cave
 function buyBtcCave(){
     let url = btcField.src;
     if (!url.includes("locked")) {
@@ -65,6 +67,7 @@ function buyBtcCave(){
 
 }
 
+//not enough money function
 function shake(){
     if (!document.getElementById('price-info')) {return;}
     let priceInfo = document.getElementById('price-info');

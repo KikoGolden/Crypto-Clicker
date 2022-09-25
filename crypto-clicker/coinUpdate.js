@@ -33,7 +33,7 @@ function updateEth(number=0.002){
     eth.textContent = parseFloat(etherium).toFixed(3);
 }
 
-
+//show hide coin if value is zero or not
 function coinUpdate(){
 
   if (doge > 0) {

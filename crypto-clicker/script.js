@@ -3,13 +3,14 @@ import { walk } from '/walk.js';
 import { hidePrice, showPrice } from '/infoTabs.js';
 import { buyDogeCave, buyEthCave, buyBtcCave } from '/buyCaves.js';
 import { mineDoge, mineEth, mineBtc } from '/mineTokens.js';
-import { closeTradeMenu, addBuySellFunc } from '/tradeMenuFuncs.js';
+import { addBuySellFunc } from '/tradeMenuFuncs.js';
 
 animateShop();
 animatePlayer();
 walk();
-closeTradeMenu();
 addBuySellFunc();
+
+localStorage.setItem('multiplier', 1)
 
 let btcField = document.querySelector('#cave-btc');
 let ethField = document.querySelector('#cave-eth');
