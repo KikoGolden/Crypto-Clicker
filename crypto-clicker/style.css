@@ -250,6 +250,41 @@ input{
     bottom: 10px;
 }
 
+/*Elon Musk`s Offer*/
+#musks-offer{
+    width: 400px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: url('images/elon-musks-offer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    z-index: 30;
+}
+#accept-offer{
+    background-color: #00ff00;
+  display: flex;
+  width: 130px;
+  height: 60px;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+}
+#accept-offer:hover{
+    background-color: #008300;
+}
+
 /*Dark Background*/
 #dark-bg{
     top: 0;
@@ -294,6 +329,9 @@ input{
 }
 .mining{
     animation: mine 0.1s linear;
+}
+.popLeft{
+    animation: popLeft 1s linear;
 }
 
 
@@ -364,6 +402,18 @@ input{
     }
     100%{
         transform: scale(1);
+    }
+}
+
+@keyframes popLeft {
+    0%{
+        right: -500px;
+    }
+    80%{
+        right: 15px;
+    }
+    100%{
+        right: 0;
     }
 }
 

@@ -5,6 +5,7 @@ import { buyDogeCave, buyEthCave, buyBtcCave } from '/buyCaves.js';
 import { mineDoge, mineEth, mineBtc } from '/mineTokens.js';
 import { addBuySellFunc } from '/tradeMenuFuncs.js';
 import { tutorial } from '/tutorial.js';
+import { offer } from '/elonsOffer.js'; 
 
 localStorage.setItem('multiplier', 1);
 localStorage.setItem('tutorialPassed', 'no');
@@ -21,6 +22,10 @@ if(localStorage.getItem('tutorialPassed') == 'no'){
         tutorial();
     },1500);
 }
+
+setInterval(()=>{
+    offer()
+}, randomNumber(120000, 180000))
 
 let btcField = document.querySelector('#cave-btc');
 let ethField = document.querySelector('#cave-eth');
@@ -53,3 +58,9 @@ btcField.addEventListener('mouseover', ()=>{
 btcField.addEventListener('mouseout', ()=>{
     hidePrice()
 });
+
+//random number generator
+function randomNumber(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  
