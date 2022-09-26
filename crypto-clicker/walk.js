@@ -1,4 +1,5 @@
 import { askForTrade } from '/infoTabs.js';
+import { secondTutorial } from '/tutorial.js';
 
 let player = document.getElementById('player');
 let playerImage = document.querySelector('#player img');
@@ -18,6 +19,25 @@ let bottomMax = 625;
 function walk(){
     
     addEventListener('keydown', (e)=>{
+
+        if (localStorage.getItem('walked') == 'no') {
+            localStorage.setItem('walked','yes');
+
+            setTimeout(()=>{
+                
+                let keys = document.getElementById('wasd');
+                keys.classList.remove('popUp');
+                keys.classList.add('fadeOut');
+
+                setTimeout(()=>{
+                    document.querySelector('body').removeChild(keys);
+
+                    setTimeout(()=>{secondTutorial(); localStorage.setItem('readyForHover', 'yes')},1000);
+                },900)
+
+            }, 2000);
+        }
+
         if((playerTop >= 255 - 50 && playerTop <= 255 + 70 - 50) && (playerLeft >= 985 - 32 && playerLeft <= 985 + 150 - 32)){
             canTrade= true;
         }else{
@@ -67,6 +87,8 @@ function walk(){
         }
 
         if (e.keyCode == 69 && canTrade) {
+            if(localStorage.getItem('tutorialPassed') == 'no'){return}
+            
             let tradeMenu = document.getElementById('trade-menu');
             let background = document.getElementById('dark-bg');
 

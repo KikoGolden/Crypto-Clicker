@@ -116,6 +116,7 @@ function addBuySellFunc(){
           let price = amount * 0.70;
           
           if(dollars >= price){
+               amountDoge.value = '';
                cash.textContent = parseFloat(dollars - price).toFixed(2);
                updateDoge(amount);
                coinUpdate();
@@ -131,6 +132,7 @@ function addBuySellFunc(){
      let price = amount * 2000;
      
      if(dollars >= price){
+          amountEth.value = '';
           cash.textContent = parseFloat(dollars - price).toFixed(2);
           updateEth(amount);
           coinUpdate();
@@ -146,6 +148,7 @@ function addBuySellFunc(){
      let price = amount * 50000;
      
      if(dollars >= price){
+          amountBtc.value = '';
           cash.textContent = parseFloat(dollars - price).toFixed(2);
           updateBitcoin(amount);
           coinUpdate();
@@ -163,6 +166,7 @@ function addBuySellFunc(){
           let price = amount * 0.70;
           
           if(dgeValue >= amount){
+               amountDoge.value = '';
                cash.textContent = parseFloat(dollars + price).toFixed(2);
                updateDoge(-amount);
                coinUpdate();
@@ -179,6 +183,7 @@ function addBuySellFunc(){
           let price = amount * 2000;
           
           if(ethValue >= amount){
+               amountEth.value = '';
                cash.textContent = parseFloat(dollars + price).toFixed(2);
                updateEth(-amount);
                coinUpdate();
@@ -195,6 +200,7 @@ function addBuySellFunc(){
     let price = amount * 50000;
     
     if(btcValue >= amount){
+     amountBtc.value = '';
          cash.textContent = parseFloat(dollars + price).toFixed(2);
          updateBitcoin(-amount);
          coinUpdate();

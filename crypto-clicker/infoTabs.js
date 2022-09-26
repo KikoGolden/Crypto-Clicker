@@ -20,6 +20,10 @@ function askForTrade(){
 }
 
 function showPrice(coin){
+
+  if (localStorage.getItem('readyForHover') == 'no') {
+    return
+  }
   
   if (document.getElementById('price-info')) {
     return;
@@ -55,6 +59,10 @@ function showPrice(coin){
 }
 
 function hidePrice(){
+  if (localStorage.getItem('readyForHover') == 'no') {
+    return
+  }
+  
   if (!document.getElementById('price-info')) {
     return;
   }

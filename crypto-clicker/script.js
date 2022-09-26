@@ -4,13 +4,23 @@ import { hidePrice, showPrice } from '/infoTabs.js';
 import { buyDogeCave, buyEthCave, buyBtcCave } from '/buyCaves.js';
 import { mineDoge, mineEth, mineBtc } from '/mineTokens.js';
 import { addBuySellFunc } from '/tradeMenuFuncs.js';
+import { tutorial } from '/tutorial.js';
 
-animateShop();
-animatePlayer();
-walk();
-addBuySellFunc();
+localStorage.setItem('multiplier', 1);
+localStorage.setItem('tutorialPassed', 'no');
+localStorage.setItem('walked','no');
+localStorage.setItem('readyForHover','no');
+localStorage.setItem('readyForHover', 'no')
 
-localStorage.setItem('multiplier', 1)
+if(localStorage.getItem('tutorialPassed') == 'no'){
+    setTimeout(()=>{
+        animateShop();
+        animatePlayer();
+        addBuySellFunc();
+        walk();
+        tutorial();
+    },1500);
+}
 
 let btcField = document.querySelector('#cave-btc');
 let ethField = document.querySelector('#cave-eth');

@@ -6,6 +6,7 @@ body{
     background-repeat: repeat;
     background-size: cover;
     user-select: none;
+    overflow: hidden;
 }
 
 /*Hide Class*/
@@ -236,6 +237,18 @@ input{
     cursor: pointer;
 }
 
+/*Tutorial Keys*/
+.tutorialKeys{
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+}
+.cavesInfo{
+    width: 400px;
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+}
 
 /*Dark Background*/
 #dark-bg{
@@ -275,6 +288,9 @@ input{
 }
 .fadeIn{
     animation: fadeIn 1.5s linear;
+}
+.fadeOut{
+    animation: fadeOut 1.0s linear;
 }
 
 
@@ -322,6 +338,17 @@ input{
     }
     to{
        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    70%{
+       opacity: 0;
+    }
+    100%{
+        opacity: 0;
     }
 }
 

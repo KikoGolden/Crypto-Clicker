@@ -6,6 +6,10 @@ let dgeField = document.querySelector('#cave-doge');
 
 //buy doge cave
 function buyDogeCave(){
+    
+if (localStorage.getItem('readyForHover') == 'no') {
+    return;
+ }
     let url = dgeField.src;
     if (!url.includes("locked")) {
         return;
