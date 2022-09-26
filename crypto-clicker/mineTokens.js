@@ -12,8 +12,10 @@ function mineDoge(){
     if (url.includes("locked")) {
         return;
     }
-    dgeField.classList.add("mining");
-    setTimeout(()=>{dgeField.classList.remove('mining')},100);
+    if (!dgeField.classList.contains('mining')) {
+        dgeField.classList.add("mining");
+        setTimeout(()=>{dgeField.classList.remove('mining')},100);
+    }
 
    updateDoge(0.5 * multiplier);
    coinUpdate();
@@ -28,8 +30,10 @@ function mineEth(){
     if (url.includes("locked")) {
         return;
     }
-    ethField.classList.add("mining");
-    setTimeout(()=>{ethField.classList.remove('mining')},100);
+    if (!ethField.classList.contains("mining")) {
+        ethField.classList.add("mining");
+        setTimeout(()=>{ethField.classList.remove('mining')},100);
+    }
 
    updateEth(0.002 * multiplier);
    coinUpdate();
@@ -43,8 +47,10 @@ function mineBtc(){
     if (url.includes("locked")) {
         return;
     }
-    btcField.classList.add("mining");
-    setTimeout(()=>{btcField.classList.remove('mining')},100);
+    if (!btcField.classList.contains('mining')) {
+        btcField.classList.add("mining");
+        setTimeout(()=>{btcField.classList.remove('mining')},100);
+    }
 
    updateBitcoin(0.0009 * multiplier);
    coinUpdate();
