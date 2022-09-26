@@ -292,6 +292,9 @@ input{
 .fadeOut{
     animation: fadeOut 1.0s linear;
 }
+.mining{
+    animation: mine 0.1s linear;
+}
 
 
 /*Animations*/
@@ -349,6 +352,18 @@ input{
     }
     100%{
         opacity: 0;
+    }
+}
+
+@keyframes mine {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+       transform: scale(0.98);
+    }
+    100%{
+        transform: scale(1);
     }
 }
 
