@@ -123,6 +123,50 @@ body{
     bottom: 10px;
 }
 
+/*Buy Lambo*/
+#lambo-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    overflow: hidden;
+    gap: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 40;
+    background: url('images/lambo-buy.png');
+    background-size: cover;
+    border: 5px solid rgb(141, 4, 4);
+    border-radius: 20px;
+}
+#lambo-menu button.buy{
+    background-color: #00ff00;
+  display: flex;
+  width: 130px;
+  height: 60px;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+#lambo-menu button.buy:hover{
+    background-color: #008300;
+   }
+#lambo-menu img.text-buy{
+   width: 300px;
+}
+#lambo-menu img.btn-img{
+    width: 30px;
+}
+
 /*Trade Menu*/
 #trade-menu, #items-menu{
     display: flex;
@@ -204,6 +248,15 @@ input{
     background-color: rgba(0, 0, 0, 0.507);
 }
 
+/*End Screen*/
+.endMessage{
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*Animation Classes*/
 .popUp{
     animation: popUp 1s linear;
@@ -219,6 +272,9 @@ input{
 }
 .shake{
     animation: shake 0.5s linear;
+}
+.fadeIn{
+    animation: fadeIn 1.5s linear;
 }
 
 
@@ -257,6 +313,15 @@ input{
     }
     to{
         right: -300px;
+    }
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+       opacity: 1;
     }
 }
 

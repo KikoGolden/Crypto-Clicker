@@ -1,3 +1,5 @@
+import { checkMoney } from '/checkIfWon.js';
+
 let btcField = document.querySelector('#btc');
 let ethField = document.querySelector('#eth');
 let dgeField = document.querySelector('#dge');
@@ -5,18 +7,18 @@ let dgeField = document.querySelector('#dge');
 let btc = document.querySelector('#btc .value');
 let eth = document.querySelector('#eth .value');
 let dge = document.querySelector('#dge .value');
-let cash = document.querySelector('#cash .value');
 
 let doge = 0;
 let etherium = 0;
 let bitcoin = 0;
-let dollars =  parseInt(cash.textContent);
 
 
 function updateCash(number){
+  
+let cash = document.querySelector('#cash .value');
   let dollarsNew =  parseInt(cash.textContent);
     dollarsNew += number;
-    cash.textContent = dollars;
+    cash.textContent = dollarsNew;
   }
     
 function updateDoge(number=0.5){
@@ -36,6 +38,8 @@ function updateEth(number=0.002){
 
 //show hide coin if value is zero or not
 function coinUpdate(){
+
+  checkMoney();
 
   if (doge > 0) {
     dgeField.classList.remove('hide'); 

@@ -8,8 +8,6 @@ function mineDoge(){
     
     let multiplier = parseInt(localStorage.getItem('multiplier'));
     let url = dgeField.src;
-
-    console.log(multiplier);
     
     if (url.includes("locked")) {
         return;
