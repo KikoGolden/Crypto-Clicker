@@ -7,12 +7,15 @@ import { addBuySellFunc } from '/tradeMenuFuncs.js';
 import { tutorial } from '/tutorial.js';
 import { offer } from '/elonsOffer.js'; 
 
+//local storage
 localStorage.setItem('multiplier', 1);
 localStorage.setItem('tutorialPassed', 'no');
 localStorage.setItem('walked','no');
 localStorage.setItem('readyForHover','no');
-localStorage.setItem('readyForHover', 'no')
+localStorage.setItem('readyForBuy', 'no');
+localStorage.setItem('tradeMenuOpen', 'no');
 
+//tutorial
 if(localStorage.getItem('tutorialPassed') == 'no'){
     setTimeout(()=>{
         animateShop();
@@ -23,6 +26,7 @@ if(localStorage.getItem('tutorialPassed') == 'no'){
     },1500);
 }
 
+//elon musks offer
 setInterval(()=>{
     offer()
 }, randomNumber(120000, 180000))

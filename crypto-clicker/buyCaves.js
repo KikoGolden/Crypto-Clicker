@@ -1,4 +1,5 @@
 import { updateCash } from '/coinUpdate.js';
+import { hidePrice } from '/infoTabs.js';
 
 let btcField = document.querySelector('#cave-btc');
 let ethField = document.querySelector('#cave-eth');
@@ -10,6 +11,11 @@ function buyDogeCave(){
 if (localStorage.getItem('readyForHover') == 'no') {
     return;
  }
+ 
+
+ if (localStorage.getItem('readyForBuy') == 'no') {
+    return;
+}
     let url = dgeField.src;
     if (!url.includes("locked")) {
         return;
@@ -20,6 +26,7 @@ if (localStorage.getItem('readyForHover') == 'no') {
 
     if (dollars >= 25) {
         updateCash(-25);
+        hidePrice();
         dgeField.src = 'images/cave-doge.png';
         dgeField.classList.remove('buyCave');
         dgeField.classList.add('mine');
@@ -41,6 +48,7 @@ function buyEthCave(){
 
     if (dollars >= 2000) {
         updateCash(-2000);
+        hidePrice();
         ethField.src = 'images/cave-etherium.png';
         ethField.classList.remove('buyCave');
         ethField.classList.add('mine');
@@ -62,9 +70,11 @@ function buyBtcCave(){
 
     if (dollars >= 50000) {
         updateCash(-50000);
+        hidePrice();
         btcField.src = 'images/cave-bitcoin.png';
         btcField.classList.remove('buyCave');
         btcField.classList.add('mine');
+
     }else{
         shake()
     }

@@ -38,6 +38,10 @@ function walk(){
             }, 2000);
         }
 
+        if (localStorage.getItem('tradeMenuOpen') == 'yes') {
+           return;
+        }
+
         if((playerTop >= 255 - 50 && playerTop <= 255 + 70 - 50) && (playerLeft >= 985 - 32 && playerLeft <= 985 + 150 - 32)){
             canTrade= true;
         }else{
@@ -88,6 +92,7 @@ function walk(){
 
         if (e.keyCode == 69 && canTrade) {
             if(localStorage.getItem('tutorialPassed') == 'no'){return}
+            localStorage.setItem('tradeMenuOpen', 'yes');
             
             let tradeMenu = document.getElementById('trade-menu');
             let background = document.getElementById('dark-bg');

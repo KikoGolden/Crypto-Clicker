@@ -1,4 +1,4 @@
-import { coinUpdate, updateDoge, updateEth, updateBitcoin, updateCash } from '/coinUpdate.js';
+import { coinUpdate, updateDoge, updateEth, updateBitcoin } from '/coinUpdate.js';
 
 //items menu
 let pickaxeMenu = document.getElementById('items-menu');
@@ -8,6 +8,15 @@ let closePicksBtn = document.getElementById('close-items-btn');
 let twoX = document.getElementById('buy2X');
 let fiveX = document.getElementById('buy5X');
 let tenX = document.getElementById('buy10X');
+
+//rtx menu
+let rtxMenu = document.getElementById('rtx-menu');
+let rtxIcon = document.getElementById('rtxs');
+let closeRtxBtn = document.getElementById('close-rtx-btn');
+
+let rtxDoge = document.getElementById('buyDogeRTX');
+let rtxEth = document.getElementById('buyEthRTX');
+let rtxBtc = document.getElementById('buyBtcRTX');
 
 //trade menu
 let buyDoge = document.getElementById('buyDoge');
@@ -26,6 +35,69 @@ let btc = document.querySelector('#btc .value');
 let eth = document.querySelector('#eth .value');
 let dge = document.querySelector('#dge .value');
 let cash = document.querySelector('#cash .value');
+
+//rtx menu functions
+function addRtxMenu(){
+     rtxIcon.addEventListener('click', ()=>{
+          rtxMenu.classList.remove('hide');
+     });
+
+     closeRtxBtn.addEventListener('click', ()=>{
+          rtxMenu.classList.add('hide');
+     });
+  
+}
+
+//buy pickaxes
+function buyRtxs(){
+     rtxDoge.addEventListener('click', ()=>{
+
+          let dollars = parseFloat(cash.textContent);
+          let price = 500;
+          
+          if(dollars >= price){
+               setInterval(() => {
+                    updateDoge();
+                    coinUpdate();
+               }, 500);
+
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               rtxDoge.classList.add('hide');
+          }
+
+     });
+     rtxEth.addEventListener('click', ()=>{
+
+          let dollars = parseFloat(cash.textContent);
+          let price = 3000;
+          
+          if(dollars >= price){
+               setInterval(() => {
+                    updateEth(0.005);
+                    coinUpdate();
+               }, 250);
+
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               rtxEth.classList.add('hide');
+          }
+
+     });
+     rtxBtc.addEventListener('click', ()=>{
+          
+          let dollars = parseFloat(cash.textContent);
+          let price = 12000;
+          if(dollars >= price){
+               setInterval(() => {
+                    updateBitcoin();
+                    coinUpdate();
+               }, 250);
+
+               cash.textContent = parseFloat(dollars - price).toFixed(2);
+               rtxBtc.classList.add('hide');
+          }
+
+     }); 
+}
 
 //pickaxe menu functions
 function addPicksMenu(){
@@ -94,6 +166,7 @@ function closeTradeMenu(){
     closeBtn.addEventListener('click', ()=>{
             let tradeMenu = document.getElementById('trade-menu');
             let background = document.getElementById('dark-bg');
+            localStorage.setItem('tradeMenuOpen', 'no');
 
             tradeMenu.classList.add('hide');
             background.classList.add('hide');
@@ -104,7 +177,9 @@ function closeTradeMenu(){
 function addBuySellFunc(){
  
    addPicksMenu();
+   addRtxMenu();
    buyPickaxes();
+   buyRtxs();
    closeTradeMenu();
 
    buyDoge.addEventListener('click', ()=>{

@@ -35,6 +35,8 @@ function thirdTutorial(){
     cavesInfo.src = 'images/buy-cave-info.png';
     cavesInfo.id = 'caves-info';
     cavesInfo.classList.add('fadeIn');
+   localStorage.setItem('readyForBuy', "yes");
+
     cavesInfo.classList.add('cavesInfo');
 
     canvas.appendChild(cavesInfo);
@@ -42,7 +44,6 @@ function thirdTutorial(){
     setTimeout(()=>{
         cavesInfo.classList.remove('fadeIn');
         cavesInfo.classList.add('fadeOut');
-        localStorage.setItem('readyForBuy', 'yes')
         
         setTimeout(()=>{
             canvas.removeChild(cavesInfo);

@@ -169,7 +169,7 @@ body{
 }
 
 /*Trade Menu*/
-#trade-menu, #items-menu{
+#trade-menu, #items-menu, #rtx-menu{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -185,15 +185,15 @@ body{
     border: 5px solid rgb(104, 61, 36);
     border-radius: 20px;
 }
-#trade-menu img, #items-menu img{
+#trade-menu img, #items-menu img, #rtx-menu img{
     width: 150px;
 }
-#trade-menu .trade-item, #items-menu .trade-item{
+#trade-menu .trade-item, #items-menu .trade-item, #rtx-menu .trade-item{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-#trade-menu .trade-item button, #items-menu .trade-item button{
+#trade-menu .trade-item button, #items-menu .trade-item button, #rtx-menu .trade-item button{
     border: 2px solid #000;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -204,10 +204,10 @@ body{
     text-transform: uppercase;
     font-size: 20px;
 }
-#trade-menu .trade-item button.buy, #items-menu .trade-item button.buy{
+#trade-menu .trade-item button.buy, #items-menu .trade-item button.buy, #rtx-menu .trade-item button.buy{
  background-color: #00ff00;
 }
-#trade-menu .trade-item button.buy:hover, #items-menu .trade-item button.buy:hover{
+#trade-menu .trade-item button.buy:hover, #items-menu .trade-item button.buy:hover, #rtx-menu .trade-item button.buy:hover{
     background-color: #008300;
    }
 
@@ -222,6 +222,10 @@ body{
     cursor: pointer;
     transform: scale(1.1);
 }
+#rtxs:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
 input{
     text-align: center;
@@ -233,8 +237,9 @@ input{
 }
 
 /*Close Button*/
-#close-btn, #close-items-btn{
+#close-btn:hover, #close-items-btn:hover, #close-rtx-btn:hover{
     cursor: pointer;
+    transform: scale(1.04);
 }
 
 /*Tutorial Keys*/
